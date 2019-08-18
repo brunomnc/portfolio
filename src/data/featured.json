@@ -1,0 +1,6 @@
+{
+  "id": 1,
+  "name": "Raspberry Pi Self Driving Car",
+  "description": "This project was done using Tensorflow and OpenCV, with the intent to map the raw pixels from a front facing camera directly to steering commands in a rc car that simulates the characteristics of driving similar to production vehicles. The goal of this project was to use a client/server approach that learns to navigate autonomously on a circuit that simulates conventional roads.",
+  "link": "https://bitbucket.org/zummygummy/rpicar-client/src/master/"
+}

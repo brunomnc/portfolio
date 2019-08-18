@@ -1,33 +1,41 @@
 import React, { Component } from 'react';
-import { FaGithub } from 'react-icons/fa';
-import { ProjectList } from './styles';
-import projects from '../../static/projects';
+import { FaBitbucket } from 'react-icons/fa';
+import featuredFile from '../../data/featured';
+
+import { MainText, Featured, Container } from './styles';
 
 class Home extends Component {
+  state = {
+    featured: featuredFile,
+  };
+
   handleClick = link => {
     window.location.assign(link);
   };
 
   render() {
+    const { featured } = this.state;
+    const link = <a href="http://ufsc.br">UFSC</a>;
     return (
-      <ProjectList>
-        {projects.map(project => (
-          <li key={project.id}>
-            <img src={project.image} alt={project.name} />
-            <strong>{project.name}</strong>
-            <p>{project.description}</p>
-            <button
-              type="button"
-              onClick={() => this.handleClick(project.link)}
-            >
-              <div>
-                <FaGithub size={18} color="#FFF" /> {}
-              </div>
-              <span>{project.link}</span>
-            </button>
-          </li>
-        ))}
-      </ProjectList>
+      <Container>
+        <MainText>
+          <strong>What do I do?</strong>
+          <span>
+            I'm a computer science graduate at {link} in Brazil. I'm passionate
+            about AI, robotics and connecting things together.
+          </span>
+        </MainText>
+        <Featured>
+          <strong>{featured.name}</strong>
+          <p>{featured.description}</p>
+          <button type="button" onClick={() => this.handleClick(featured.link)}>
+            <div>
+              <FaBitbucket size={16} color="#FFF" />
+              {'Source code!'}
+            </div>
+          </button>
+        </Featured>
+      </Container>
     );
   }
 }
